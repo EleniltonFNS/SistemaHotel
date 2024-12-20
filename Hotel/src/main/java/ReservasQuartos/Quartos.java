@@ -1,4 +1,4 @@
-package Hotel;
+package ReservasQuartos;
 
 public class Quartos {
 }
