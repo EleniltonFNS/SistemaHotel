@@ -1,4 +1,4 @@
-package ReservasQuartos;
+package SistemaHotel;
 
 public class Hospedes {
     private String nome;

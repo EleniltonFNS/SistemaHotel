@@ -1,4 +1,4 @@
-package ReservasQuartos;
+package SistemaHotel;
 
 public class TipoQuartos {
  private int id;
