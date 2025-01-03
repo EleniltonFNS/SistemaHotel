@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ce21dae-1242-4b6f-a9b7-03f030857bea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/HospedesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/QuartosDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/ReservasDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/TipoQuartosDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Conexao/ConexaoSysHotel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/HotelMain/TesteConexao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ReservasQuartos/Hospedes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Hospedes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ReservasQuartos/MainHotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HotelMain/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ReservasQuartos/Quartos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Quartos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ReservasQuartos/Reservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Reservas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ReservasQuartos/TipoQuartos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/TipoQuartos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/sys_hotel_hospedes.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/sys_hotel_quartos.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/sys_hotel_reservas.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/sys_hotel_tipo_quartos.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HotelMain/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +49,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.MainHotel.executor": "Run",
+    "Application.TesteConexao.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
@@ -71,6 +62,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -98,7 +90,10 @@
       <updated>1734704680752</updated>
       <workItem from="1734704681752" duration="390000" />
       <workItem from="1735781388308" duration="1657000" />
-      <workItem from="1735783100393" duration="1072000" />
+      <workItem from="1735783100393" duration="1104000" />
+      <workItem from="1735858612520" duration="42000" />
+      <workItem from="1735858793350" duration="255000" />
+      <workItem from="1735859094696" duration="3961000" />
     </task>
     <servers />
   </component>
