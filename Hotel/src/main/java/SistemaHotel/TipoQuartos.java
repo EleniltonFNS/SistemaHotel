@@ -1,7 +1,7 @@
 package SistemaHotel;
 
 public class TipoQuartos {
- private int id;
+    private int id;
     private String descricao;
     private int capacidadePessoas;
     private double precoDiaria;
