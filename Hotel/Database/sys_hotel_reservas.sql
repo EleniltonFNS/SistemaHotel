@@ -31,6 +31,7 @@ CREATE TABLE `reservas` (
   `data_checkin` date NOT NULL,
   `data_checkout` date NOT NULL,
   `valor_total` decimal(10,2) NOT NULL,
+  `reserva_ativa` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`reservas_id`),
   KEY `reservas_quarto_id` (`reservas_quarto_id`),
   KEY `reservas_hospedes_id` (`reservas_hospedes_id`),
@@ -38,6 +39,15 @@ CREATE TABLE `reservas` (
   CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`reservas_hospedes_id`) REFERENCES `hospedes` (`hospedes_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reservas`
+--
+
+LOCK TABLES `reservas` WRITE;
+/*!40000 ALTER TABLE `reservas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reservas` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -47,5 +57,3 @@ CREATE TABLE `reservas` (
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2024-12-17 22:15:09

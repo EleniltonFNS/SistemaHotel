@@ -7,8 +7,7 @@ public class TipoQuartos {
     private double precoDiaria;
 
     // Constructor
-    public TipoQuartos(int id, String descricao, int capacidadePessoas, double precoDiaria) {
-        this.id = id;
+    public TipoQuartos(String descricao, int capacidadePessoas, double precoDiaria) {
         this.descricao = descricao;
         this.capacidadePessoas = capacidadePessoas;
         this.precoDiaria = precoDiaria;
@@ -50,9 +49,9 @@ public class TipoQuartos {
     @Override
     public String toString() {
         return "TipoQuartos{" +
-                "id=" + id +
-                ", descricao='" + descricao + '\'' +
-                ", capacidadePessoas=" + capacidadePessoas +
+                "id: " + id +
+                "descricao: " + descricao + '\'' +
+                ", " + capacidadePessoas +
                 ", precoDiaria=" + precoDiaria +
                 '}';
     }

@@ -26,12 +26,22 @@ DROP TABLE IF EXISTS `tipo_quartos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tipo_quartos` (
   `tipo_quartos_id` int NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(50) NOT NULL,
+  `nome` varchar(50) NOT NULL,
   `capacidade_pessoas` int NOT NULL,
   `preco_diaria` decimal(10,2) unsigned NOT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`tipo_quartos_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipo_quartos`
+--
+
+LOCK TABLES `tipo_quartos` WRITE;
+/*!40000 ALTER TABLE `tipo_quartos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tipo_quartos` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -42,4 +52,3 @@ CREATE TABLE `tipo_quartos` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-17 22:15:09
