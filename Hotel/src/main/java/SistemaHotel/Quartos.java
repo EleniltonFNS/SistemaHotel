@@ -2,7 +2,7 @@ package SistemaHotel;
 
 /**
  * Classe que representa os quartos do hotel.
- * Possui os atributos quartosID, numero, quartoDisponivel e tipoQuartos.
+ * Possui os atributos quartosID, numero, quartoDisponivel e tipoQuarto.
  * Além de métodos getters e setters.
  */
 public class Quartos {
@@ -79,13 +79,23 @@ public class Quartos {
         this.tipoQuarto = tipoQuarto;}
 
     /**
-     * Sobrescrita que retorna uma string com os dados do quarto.
-     * @return String com os dados do quarto.
+     * Sobrescrita do método {@code toString} para retornar os dados do quarto.
+     * A string retornada contém o número do quarto, o ID do quarto, o status de disponibilidade
+     * ("Disponível" ou "Ocupado") e o tipo do quarto seguido pelo valor da diária
+     * @return String com os dados do quarto, o qual pode varia a depender do status de disponibilidade.
      */
     @Override
     public String toString() {
-        return " Quarto: " + numero + "\'"
+        if(quartoDisponivel){
+            return " Quarto: " + numero + "\'"
+                    + " ID: " + quartosId + "\'"
+                    + " Status Disponibilidade: Disponível \'"
+                    + " Tipo: " + tipoQuarto + " | R$ " + tipoQuarto.getPrecoDiaria() + " a diária";
+        } else {
+            return " Quarto: " + numero + "\'"
                 + " ID: " + quartosId + "\'"
-                + " Disponível: " + quartoDisponivel + "\'"
-                + " Tipo: " + tipoQuarto + "\'";}
+                + " Status Disponibilidade: Ocupado \'"
+                + " Tipo: " + tipoQuarto +  " | R$ " + tipoQuarto.getPrecoDiaria() + " a diária";
+        }
+    }
 }
