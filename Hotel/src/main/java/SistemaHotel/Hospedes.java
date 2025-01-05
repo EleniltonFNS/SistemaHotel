@@ -1,9 +1,17 @@
 package SistemaHotel;
 
 /**
- * Classe que representa os hóspedes do hotel.
- * Possui os atributos hospedesID, nome, cpf, telefone e email.
- * Além de métodos getters e setters.
+ * Classe que representa um hóspede no sistema de hotel.
+ * Contém informações sobre o nome, CPF, telefone e e-mail do hóspede.
+ * <p>
+ * Atributos:
+ *  <ul>
+ *     <li>{@code hospedesId}: ID único de cada hóspede.</li>
+ *     <li>{@code nome}: Nome do hóspede.</li>
+ *     <li>{@code cpf}: CPF do hóspede.</li>
+ *     <li>{@code telefone}: Telefone do hóspede.</li>
+ *     <li>{@code email}: E-mail do hóspede.</li>
+ * </ul>
  */
 public class Hospedes {
     private int hospedesId;
@@ -89,10 +97,11 @@ public class Hospedes {
     public void setEmail(String email) {
         this.email = email;}
 
-    /**
-     * Sobrescrita que retorna uma string com os dados do hóspede.
-     * @return String com os dados do hóspede.
-     */
+   /**
+    * Sobrescrita do método {@code toString} para retornar os dados do hóspede.
+    * A string retornada contém o nome do hóspede, o ID do hóspede, o CPF, o telefone e o e-mail.
+    * @return String com os dados do hóspede.
+    */
     @Override
     public String toString() {
         return " Hóspede: " + nome + '\''

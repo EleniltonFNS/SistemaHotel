@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6ce21dae-1242-4b6f-a9b7-03f030857bea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/sys_hotel_reservas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Database/sys_hotel_reservas.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database/sys_hotel_tipo_quartos.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Database/sys_hotel_tipo_quartos.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/Hospedes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Hospedes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/Quartos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Quartos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/Reservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Reservas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/TipoQuartos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/TipoQuartos.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +100,7 @@
       <workItem from="1735954682921" duration="3214000" />
       <workItem from="1736030729438" duration="2228000" />
       <workItem from="1736034650232" duration="11173000" />
+      <workItem from="1736106953270" duration="3835000" />
     </task>
     <servers />
   </component>

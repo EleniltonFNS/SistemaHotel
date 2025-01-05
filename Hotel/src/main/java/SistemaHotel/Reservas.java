@@ -97,7 +97,6 @@ public class Reservas {
 
     /**
      * Método que retorna o ID da reserva.
-     *
      * @return ID da reserva.
      */
     public int getReservasId() {
@@ -106,7 +105,6 @@ public class Reservas {
 
     /**
      * Método que retorna o quarto reservado.
-     *
      * @return Objeto da classe {@link Quartos} que representa o quarto reservado.
      */
     public Quartos getQuarto() {
@@ -115,7 +113,6 @@ public class Reservas {
 
     /**
      * Método que retorna o hóspede que fez a reserva.
-     *
      * @return Objeto da classe {@link Hospedes} que representa o hóspede que fez a reserva.
      */
     public Hospedes getHospede() {
@@ -124,7 +121,6 @@ public class Reservas {
 
     /**
      * Método que retorna a data de check-in da reserva.
-     *
      * @return Data de check-in da reserva.
      */
     public LocalDate getDataCheckin() {
@@ -133,7 +129,6 @@ public class Reservas {
 
     /**
      * Método que retorna a data de check-out da reserva.
-     *
      * @return Data de check-out da reserva.
      */
     public LocalDate getDataCheckout() {
@@ -142,7 +137,6 @@ public class Reservas {
 
     /**
      * Método que retorna o valor total da reserva.
-     *
      * @return Valor total da reserva.
      */
     public double getValorTotal() {
@@ -151,7 +145,6 @@ public class Reservas {
 
     /**
      * Método que retorna o status atual da reserva (ativa ou finalizada).
-     *
      * @return {@code true} se a reserva estiver ativa, {@code false} caso esteja finalizada.
      */
     public boolean isReservaAtiva() {
@@ -159,11 +152,11 @@ public class Reservas {
     }
 
     /**
-     * Implementação do método {@code toString} para apresentar as informações de uma reserva.
-     * A string gerada contém detalhes como o número do quarto, o nome do hóspede, as datas de check-in e check-out,
-     * valor total da reserva e status atual da reserva.
-     *
-     * @return Uma string que representa a reserva, com dados como ID, quarto, hóspede, datas e valor total.
+     * Sobrescrita do método {@code toString} para retornar os dados da reserva.
+     * A string retornada contém o ID da reserva, o número do quarto, o nome do hóspede,
+     * as datas de check-in e check-out, o valor total da reserva e o status da reserva
+     * ("Reserva Ativa" ou "Reserva Finalizada").
+     * @return String com os dados da reserva.
      */
     @Override
     public String toString() {

@@ -1,9 +1,16 @@
 package SistemaHotel;
 
 /**
- * Classe que representa os quartos do hotel.
- * Possui os atributos quartosID, numero, quartoDisponivel e tipoQuarto.
- * Além de métodos getters e setters.
+ * Classe que representa um quarto no sistema de hotel.
+ * Contém informações sobre o número do quarto, disponibilidade e tipo.
+ * <p>
+ * Atributos:
+ *  <ul>
+ *     <li>{@code quartosId}: ID único de cada quarto.</li>
+ *     <li>{@code numero}: Número do quarto.</li>
+ *     <li>{@code quartoDisponivel}: Indica se o quarto está disponível ou não.</li>
+ *     <li>{@code tipoQuarto}: Objeto da classe {@link TipoQuartos}, que representa o tipo do quarto.</li>
+ * </ul>
  */
 public class Quartos {
     //Atributos
