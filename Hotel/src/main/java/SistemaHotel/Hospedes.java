@@ -108,6 +108,5 @@ public class Hospedes {
                 + " ID: " + hospedesId + '\''
                 + " cpf: " + cpf + '\''
                 + " telefone: " + telefone + '\''
-                + " email: " + email + '\'';
-    }
+                + " email: " + email + '\'';}
 }

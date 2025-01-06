@@ -35,14 +35,12 @@ public class TipoQuartos {
     public TipoQuartos(String nome, int capacidadePessoas, double precoDiaria, String descricao) {
         // Verifica se os campos obrigatórios foram preenchidos.
         if (nome == null || descricao == null || capacidadePessoas <= 0 || precoDiaria <= 0) {
-            throw new IllegalArgumentException(" - Todos os campos são obrigatórios.");
-        }
+            throw new IllegalArgumentException(" - Todos os campos são obrigatórios.");}
 
         this.nome = nome;
         this.capacidadePessoas = capacidadePessoas;
         this.precoDiaria = precoDiaria;
-        this.descricao = descricao;
-    }
+        this.descricao = descricao;}
 
     // Getters and Setters
     /**
@@ -50,72 +48,63 @@ public class TipoQuartos {
      * @return ID do tipo de quarto.
      */
     public int getTipoQuartosId() {
-        return tipoQuartosId;
-    }
+        return tipoQuartosId;}
 
     /**
      * Método que retorna o nome do tipo de quarto.
      * @return Nome do tipo de quarto.
      */
     public String getNome() {
-        return nome;
-    }
+        return nome;}
 
     /**
      * Método que altera o nome do tipo de quarto.
      * @param nome Novo nome do tipo de quarto.
      */
     public void setNome(String nome) {
-        this.nome = nome;
-    }
+        this.nome = nome;}
 
     /**
      * Método que retorna a descrição do tipo de quarto.
      * @return Descrição do tipo de quarto.
      */
     public String getDescricao() {
-        return descricao;
-    }
+        return descricao;}
 
     /**
      * Método que altera a descrição do tipo de quarto.
      * @param descricao Nova descrição do tipo de quarto.
      */
     public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+        this.descricao = descricao;}
 
     /**
      * Método que retorna a capacidade de pessoas do tipo de quarto.
      * @return Capacidade de pessoas do tipo de quarto.
      */
     public int getCapacidadePessoas() {
-        return capacidadePessoas;
-    }
+        return capacidadePessoas;}
 
     /**
      * Método que altera a capacidade de pessoas do tipo de quarto.
      * @param capacidadePessoas Nova capacidade de pessoas do tipo de quarto.
      */
     public void setCapacidadePessoas(int capacidadePessoas) {
-        this.capacidadePessoas = capacidadePessoas;
-    }
+        this.capacidadePessoas = capacidadePessoas;}
 
     /**
      * Método que retorna o preço da diária do tipo de quarto.
      * @return Preço da diária do tipo de quarto.
      */
     public double getPrecoDiaria() {
-        return precoDiaria;
-    }
+        return precoDiaria;}
 
     /**
      * Método que altera o preço da diária do tipo de quarto.
      * @param precoDiaria Novo preço da diária do tipo de quarto.
      */
     public void setPrecoDiaria(double precoDiaria) {
-        this.precoDiaria = precoDiaria;
-    }
+        this.precoDiaria = precoDiaria;}
 
     /**
      * Sobrescrita do método {@code toString} para retornar os dados do tipo de quarto.
@@ -129,7 +118,5 @@ public class TipoQuartos {
                 + "ID: " + tipoQuartosId + "\n"
                 + "Capacidade de Pessoas: " + capacidadePessoas + "\n"
                 + "Preço da Diária: R$ " + precoDiaria + "\n"
-                + "Descrição: " + descricao;
-    }
+                + "Descrição: " + descricao;}
 }
-

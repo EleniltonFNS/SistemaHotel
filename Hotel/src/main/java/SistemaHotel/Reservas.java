@@ -42,20 +42,16 @@ public class Reservas {
     public Reservas(Quartos quarto, Hospedes hospede, LocalDate dataCheckin, LocalDate dataCheckout) {
         // Verifica se os campos obrigatórios foram preenchidos.
         if (hospede == null || quarto == null || dataCheckin == null || dataCheckout == null) {
-            throw new IllegalArgumentException(" - Todos os campos são obrigatórios.");
-        }
+            throw new IllegalArgumentException(" - Todos os campos são obrigatórios.");}
         // Verifica se a data de check-out é anterior à data de check-in.
         if (dataCheckout.isBefore(dataCheckin)) {
-            throw new IllegalArgumentException(" - A data de check-out não pode ser anterior à data de check-in.");
-        }
+            throw new IllegalArgumentException(" - A data de check-out não pode ser anterior à data de check-in.");}
         // Verifica se a data de check-in é anterior à data atual.
         if (dataCheckin.isBefore(LocalDate.now())) {
-            throw new IllegalArgumentException(" - A data de check-in não pode ser anterior à data atual.");
-        }
+            throw new IllegalArgumentException(" - A data de check-in não pode ser anterior à data atual.");}
         // Verifica se o quarto selecionado está disponível.
         if (!quarto.isQuartoDisponivel()) {
-            throw new IllegalArgumentException(" - O quarto selecionado não está disponível.");
-        }
+            throw new IllegalArgumentException(" - O quarto selecionado não está disponível.");}
 
         this.quarto = quarto;
         this.quarto.setQuartoOcupado();
@@ -63,13 +59,12 @@ public class Reservas {
         this.dataCheckin = dataCheckin;
         this.dataCheckout = dataCheckout;
         this.reservaAtiva = true;
-        calcularValorTotal();
-    }
+        calcularValorTotal();}
 
     /**
      * Método que calcula o valor total da reserva com base na diária do quarto e na quantidade de dias.
      */
-    private void calcularValorTotal() {
+    public void calcularValorTotal() {
         try{
             // Calcula a quantidade de dias entre o check-in e o check-out.
             long diasDeEstadias = ChronoUnit.DAYS.between(dataCheckin, dataCheckout);
@@ -100,56 +95,63 @@ public class Reservas {
      * @return ID da reserva.
      */
     public int getReservasId() {
-        return reservasId;
-    }
+        return reservasId;}
 
     /**
      * Método que retorna o quarto reservado.
      * @return Objeto da classe {@link Quartos} que representa o quarto reservado.
      */
     public Quartos getQuarto() {
-        return quarto;
-    }
+        return quarto;}
 
     /**
      * Método que retorna o hóspede que fez a reserva.
      * @return Objeto da classe {@link Hospedes} que representa o hóspede que fez a reserva.
      */
     public Hospedes getHospede() {
-        return hospede;
-    }
+        return hospede;}
 
     /**
      * Método que retorna a data de check-in da reserva.
      * @return Data de check-in da reserva.
      */
     public LocalDate getDataCheckin() {
-        return dataCheckin;
-    }
+        return dataCheckin;}
+
+    /**
+     * Método que altera a data de check-in da reserva.
+     * @param dataCheckin Nova data de check-in da reserva.
+     */
+    public void setDataCheckin(LocalDate dataCheckin) {
+        this.dataCheckin = dataCheckin;}
 
     /**
      * Método que retorna a data de check-out da reserva.
      * @return Data de check-out da reserva.
      */
     public LocalDate getDataCheckout() {
-        return dataCheckout;
-    }
+        return dataCheckout;}
+
+    /**
+     * Método que altera a data de check-out da reserva.
+     * @param dataCheckout Nova data de check-out da reserva.
+     */
+    public void setDataCheckout(LocalDate dataCheckout) {
+        this.dataCheckout = dataCheckout;}
 
     /**
      * Método que retorna o valor total da reserva.
      * @return Valor total da reserva.
      */
     public double getValorTotal() {
-        return valorTotal;
-    }
+        return valorTotal;}
 
     /**
      * Método que retorna o status atual da reserva (ativa ou finalizada).
      * @return {@code true} se a reserva estiver ativa, {@code false} caso esteja finalizada.
      */
     public boolean isReservaAtiva() {
-        return reservaAtiva;
-    }
+        return reservaAtiva;}
 
     /**
      * Sobrescrita do método {@code toString} para retornar os dados da reserva.
