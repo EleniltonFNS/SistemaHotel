@@ -16,7 +16,7 @@ import java.util.List;
  * Classe responsável por realizar operações de CRUD na tabela reservas do banco de dados.
  */
 public class ReservasDAO {
-    
+
     private Connection connection;
 
     /**
@@ -67,6 +67,7 @@ public class ReservasDAO {
                 Quartos quarto = new QuartosDAO().pesquisar(rs.getInt("reservas_quarto_id"));
                 Hospedes hospede = new HospedesDAO().pesquisar(rs.getInt("reservas_hospedes_id"));
                 reserva = new Reservas(quarto, hospede, rs.getDate("data_checkin").toLocalDate(), rs.getDate("data_checkout").toLocalDate());
+                reserva.setReservasId(rs.getInt("reservas_id"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -143,6 +144,7 @@ public class ReservasDAO {
                 Quartos quarto = new QuartosDAO().pesquisar(rs.getInt("reservas_quarto_id"));
                 Hospedes hospede = new HospedesDAO().pesquisar(rs.getInt("reservas_hospedes_id"));
                 Reservas reserva = new Reservas(quarto, hospede, rs.getDate("data_checkin").toLocalDate(), rs.getDate("data_checkout").toLocalDate());
+                reserva.setReservasId(rs.getInt("reservas_id"));
                 reservasList.add(reserva);
             }
         } catch (SQLException e) {

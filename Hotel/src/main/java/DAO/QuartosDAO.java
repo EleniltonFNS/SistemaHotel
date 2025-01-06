@@ -15,7 +15,7 @@ import java.util.List;
  * Classe responsável por realizar operações de CRUD na tabela quartos do banco de dados.
  */
 public class QuartosDAO {
-    
+
     // Atributo de conexão com o banco de dados.
     private Connection connection;
 
@@ -58,6 +58,12 @@ public class QuartosDAO {
             if (rs.next()) {
                 TipoQuartos tipoQuarto = new TipoQuartosDAO().pesquisar(rs.getInt("quartos_tq_id"));
                 quarto = new Quartos(rs.getInt("numero"), tipoQuarto);
+                quarto.setQuartosId(rs.getInt("quartos_id"));
+                if (rs.getBoolean("quarto_disponivel")) {
+                    quarto.setQuartoDisponivel();
+                } else {
+                    quarto.setQuartoOcupado();
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -111,6 +117,12 @@ public class QuartosDAO {
             while (rs.next()) {
                 TipoQuartos tipoQuarto = new TipoQuartosDAO().pesquisar(rs.getInt("quartos_tq_id"));
                 Quartos quarto = new Quartos(rs.getInt("numero"), tipoQuarto);
+                quarto.setQuartosId(rs.getInt("quartos_id"));
+                if (rs.getBoolean("quarto_disponivel")) {
+                    quarto.setQuartoDisponivel();
+                } else {
+                    quarto.setQuartoOcupado();
+                }
                 quartosList.add(quarto);
             }
         } catch (SQLException e) {

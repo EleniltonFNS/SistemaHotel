@@ -14,7 +14,7 @@ import java.util.List;
  * Classe responsável por realizar operações de CRUD na tabela hospedes do banco de dados.
  */
 public class HospedesDAO {
-    
+
     // Atributo de conexão com o banco de dados.
     private Connection connection;
 
@@ -57,6 +57,7 @@ public class HospedesDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 hospede = new Hospedes(rs.getString("nome"), rs.getString("cpf"), rs.getString("telefone"), rs.getString("email"));
+                hospede.setHospedesId(rs.getInt("hospedes_id"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,6 +111,7 @@ public class HospedesDAO {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Hospedes hospede = new Hospedes(rs.getString("nome"), rs.getString("cpf"), rs.getString("telefone"), rs.getString("email"));
+                hospede.setHospedesId(rs.getInt("hospedes_id"));
                 hospedesList.add(hospede);
             }
         } catch (SQLException e) {

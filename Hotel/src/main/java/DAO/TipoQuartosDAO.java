@@ -14,7 +14,7 @@ import java.util.List;
  * Classe responsável por realizar operações de CRUD na tabela tipo_quartos do banco de dados.
  */
 public class TipoQuartosDAO {
-    
+
     // Atributo de conexão com o banco de dados.
     private Connection connection;
 
@@ -57,6 +57,7 @@ public class TipoQuartosDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 tipoQuarto = new TipoQuartos(rs.getString("nome"), rs.getInt("capacidade_pessoas"), rs.getDouble("preco_diaria"), rs.getString("descricao"));
+                tipoQuarto.setTipoQuartosId(rs.getInt("tipo_quartos_id"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,6 +111,7 @@ public class TipoQuartosDAO {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 TipoQuartos tipoQuarto = new TipoQuartos(rs.getString("nome"), rs.getInt("capacidade_pessoas"), rs.getDouble("preco_diaria"), rs.getString("descricao"));
+                tipoQuarto.setTipoQuartosId(rs.getInt("tipo_quartos_id"));
                 tipoQuartosList.add(tipoQuarto);
             }
         } catch (SQLException e) {

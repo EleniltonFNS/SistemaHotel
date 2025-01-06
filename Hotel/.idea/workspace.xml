@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ce21dae-1242-4b6f-a9b7-03f030857bea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/Hospedes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Hospedes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/Quartos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Quartos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/Reservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Reservas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/TipoQuartos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/TipoQuartos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/HospedesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/HospedesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/QuartosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/QuartosDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ReservasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ReservasDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/TipoQuartosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/TipoQuartosDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +106,7 @@
       <workItem from="1736030729438" duration="2228000" />
       <workItem from="1736034650232" duration="11173000" />
       <workItem from="1736106953270" duration="19092000" />
-      <workItem from="1736201580625" duration="4904000" />
+      <workItem from="1736201580625" duration="5414000" />
     </task>
     <servers />
   </component>
