@@ -42,6 +42,13 @@ public class Hospedes {
         return hospedesId;}
 
     /**
+     * Método que altera o ID do hóspede.
+     * @param hospedesId Novo ID do hóspede.
+     */
+    public void setHospedesId(int hospedesId) {
+        this.hospedesId = hospedesId;}
+
+    /**
      * Método que retorna o nome do hóspede.
      * @return Nome do hóspede.
      */
@@ -104,9 +111,9 @@ public class Hospedes {
     */
     @Override
     public String toString() {
-        return " Hóspede: " + nome + '\''
-                + " ID: " + hospedesId + '\''
-                + " cpf: " + cpf + '\''
-                + " telefone: " + telefone + '\''
-                + " email: " + email + '\'';}
+        return "\n Hóspede: " + nome + '\n'
+                + " ID: " + hospedesId + '\n'
+                + " cpf: " + cpf + '\n'
+                + " telefone: " + telefone + '\n'
+                + " email: " + email + '\n';}
 }

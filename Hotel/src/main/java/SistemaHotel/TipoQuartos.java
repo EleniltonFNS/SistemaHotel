@@ -51,6 +51,13 @@ public class TipoQuartos {
         return tipoQuartosId;}
 
     /**
+     * Método que altera o ID do tipo de quarto.
+     * @param tipoQuartosId Novo ID do tipo de quarto.
+     */
+    public void setTipoQuartosId(int tipoQuartosId) {
+        this.tipoQuartosId = tipoQuartosId;}
+
+    /**
      * Método que retorna o nome do tipo de quarto.
      * @return Nome do tipo de quarto.
      */
@@ -114,7 +121,7 @@ public class TipoQuartos {
      */
     @Override
     public String toString() {
-        return "Tipo de Quarto: " + nome + "\n"
+        return "\n Tipo de Quarto: " + nome + "\n"
                 + "ID: " + tipoQuartosId + "\n"
                 + "Capacidade de Pessoas: " + capacidadePessoas + "\n"
                 + "Preço da Diária: R$ " + precoDiaria + "\n"

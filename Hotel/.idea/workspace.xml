@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ce21dae-1242-4b6f-a9b7-03f030857bea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AppHotel/MetodosHospedes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AppHotel/MetodosQuartos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AppHotel/MetodosReservas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AppHotel/MetodosTipoQuartos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/HospedesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/HospedesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/QuartosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/QuartosDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ReservasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ReservasDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/TipoQuartosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/TipoQuartosDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/HotelMain/TesteConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppHotel/HotelMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/Hospedes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Hospedes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/Quartos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Quartos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SistemaHotel/Reservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SistemaHotel/Reservas.java" afterDir="false" />
@@ -57,10 +49,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.HotelMain.executor": "Run",
     "Application.MainHotel.executor": "Run",
     "Application.TesteConexao.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindow.GitHub Copilot Chat.ShowToolbar": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/elehi/OneDrive/Documentos/GitHub/SistemaHotel/Hotel/Database",
@@ -89,8 +84,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
       </set>
     </attachedChunks>
   </component>
@@ -112,7 +107,8 @@
       <workItem from="1735954682921" duration="3214000" />
       <workItem from="1736030729438" duration="2228000" />
       <workItem from="1736034650232" duration="11173000" />
-      <workItem from="1736106953270" duration="18125000" />
+      <workItem from="1736106953270" duration="19092000" />
+      <workItem from="1736201580625" duration="4904000" />
     </task>
     <servers />
   </component>

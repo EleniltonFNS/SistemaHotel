@@ -98,6 +98,13 @@ public class Reservas {
         return reservasId;}
 
     /**
+     * Método que altera o ID da reserva.
+     * @param reservasId Novo ID da reserva.
+     */
+    public void setReservasId(int reservasId) {
+        this.reservasId = reservasId;}
+
+    /**
      * Método que retorna o quarto reservado.
      * @return Objeto da classe {@link Quartos} que representa o quarto reservado.
      */
@@ -163,21 +170,21 @@ public class Reservas {
     @Override
     public String toString() {
         if(reservaAtiva){
-            return "Reserva ID: " + reservasId + "\n" +
-                    "Quarto: " + quarto.getNumero() + "\n" +
-                    "Hóspede: " + hospede.getNome() + "\n" +
-                    "Data de Check-in: " + dataCheckin + "\n" +
-                    "Data de Check-out: " + dataCheckout + "\n" +
-                    "Valor Total da Reserva: R$ " + valorTotal + "\n" +
-                    "Reserva Ativa";
+            return "\n Reserva ID: " + reservasId + "\n" +
+                    " Quarto: " + quarto.getNumero() + "\n" +
+                    " Hóspede: " + hospede.getNome() + "\n" +
+                    " Data de Check-in: " + dataCheckin + "\n" +
+                    " Data de Check-out: " + dataCheckout + "\n" +
+                    " Valor Total da Reserva: R$ " + valorTotal + "\n" +
+                    " Reserva Ativa";
         } else {
-            return "Reserva ID: " + reservasId + "\n" +
-                    "Quarto: " + quarto.getNumero() + "\n" +
-                    "Hóspede: " + hospede.getNome() + "\n" +
-                    "Data de Check-in: " + dataCheckin + "\n" +
-                    "Data de Check-out: " + dataCheckout + "\n" +
-                    "Valor Total da Reserva: R$ " + valorTotal + "\n" +
-                    "Reserva Finalizada";
+            return "\n Reserva ID: " + reservasId + "\n" +
+                    " Quarto: " + quarto.getNumero() + "\n" +
+                    " Hóspede: " + hospede.getNome() + "\n" +
+                    " Data de Check-in: " + dataCheckin + "\n" +
+                    " Data de Check-out: " + dataCheckout + "\n" +
+                    " Valor Total da Reserva: R$ " + valorTotal + "\n" +
+                    " Reserva Finalizada";
         }
     }
 }

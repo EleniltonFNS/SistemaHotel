@@ -39,6 +39,13 @@ public class Quartos {
         return quartosId;}
 
     /**
+     * Método que altera o ID do quarto.
+     * @param quartosId Novo ID do quarto.
+     */
+    public void setQuartosId(int quartosId) {
+        this.quartosId = quartosId;}
+
+    /**
      * Método que retorna o número do quarto.
      * @return Número do quarto.
      */
@@ -94,15 +101,15 @@ public class Quartos {
     @Override
     public String toString() {
         if(quartoDisponivel){
-            return " Quarto: " + numero + "\'"
-                    + " ID: " + quartosId + "\'"
-                    + " Status Disponibilidade: Disponível \'"
+            return "\n Quarto: " + numero + "\n"
+                    + " ID: " + quartosId + "\n"
+                    + " Status Disponibilidade: Disponível \n"
                     + " Tipo: " + tipoQuarto + " | R$ " + tipoQuarto.getPrecoDiaria() + " a diária";
         } else {
-            return " Quarto: " + numero + "\'"
-                + " ID: " + quartosId + "\'"
-                + " Status Disponibilidade: Ocupado \'"
-                + " Tipo: " + tipoQuarto +  " | R$ " + tipoQuarto.getPrecoDiaria() + " a diária";
+            return "\n Quarto: " + numero + "\n"
+                    + " ID: " + quartosId + "\n"
+                    + " Status Disponibilidade: Ocupado \n"
+                    + " Tipo: " + tipoQuarto +  " | R$ " + tipoQuarto.getPrecoDiaria() + " a diária";
         }
     }
 }
