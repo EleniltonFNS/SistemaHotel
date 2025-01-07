@@ -21,7 +21,7 @@ public class HotelMain {
             System.out.println(" | 5 - Sair");
 
             System.out.print(" -> ");
-            while (!entrada.hasNextInt()) { // Tratamento e validação da entrada do menu principal
+            while (!entrada.hasNextInt()) { // Tratamento e validação da entrada do menu principal.
                 System.out.println(" - Digite um número válido. ");
                 System.out.print(" -> ");
                 entrada.next();
@@ -43,7 +43,7 @@ public class HotelMain {
                         System.out.println(" | 6 - Voltar");
 
                         System.out.print(" -> ");
-                        while (!entrada.hasNextInt()) { // Tratamento e validação da entrada do menu de hóspedes
+                        while (!entrada.hasNextInt()) { // Tratamento e validação da entrada do menu de hóspedes.
                             System.out.println(" - Digite um número válido. ");
                             System.out.print(" -> ");
                             entrada.next();
@@ -90,7 +90,7 @@ public class HotelMain {
                         System.out.println(" | 6 - Voltar");
 
                         System.out.print(" -> ");
-                        while (!entrada.hasNextInt()) { // Tratamento e validação da entrada do menu de quartos
+                        while (!entrada.hasNextInt()) { // Tratamento e validação da entrada do menu de quartos.
                             System.out.println(" - Digite um número válido. ");
                             System.out.print(" -> ");
                             entrada.next();
@@ -139,7 +139,7 @@ public class HotelMain {
                         System.out.println(" | 8 - Voltar");
 
                         System.out.print(" -> ");
-                        while (!entrada.hasNextInt()) { // Tratamento e validação da entrada do menu de reservas
+                        while (!entrada.hasNextInt()) { // Tratamento e validação da entrada do menu de reservas.
                             System.out.println(" - Digite um número válido. ");
                             System.out.print(" -> ");
                             entrada.next();
@@ -192,7 +192,7 @@ public class HotelMain {
                         System.out.println(" | 6 - Voltar");
 
                         System.out.print(" -> ");
-                        while (!entrada.hasNextInt()) { // Tratamento e validação da entrada do menu de tipos de quarto
+                        while (!entrada.hasNextInt()) { // Tratamento e validação da entrada do menu de tipos de quarto.
                             System.out.println(" - Digite um número válido. ");
                             System.out.print(" -> ");
                             entrada.next();
