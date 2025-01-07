@@ -1,9 +1,4 @@
-
-package HotelMain;
-
-
-public class ServicosQuartos {
-   package AppHotel;
+package AppHotel;
 
 import DAO.QuartosDAO;
 import DAO.TipoQuartosDAO;

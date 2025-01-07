@@ -1,5 +1,4 @@
-
-package HotelMain;
+package AppHotel;
 
 
 public class ServicosReservas {

@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ce21dae-1242-4b6f-a9b7-03f030857bea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/HospedesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/HospedesDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/QuartosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/QuartosDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ReservasDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ReservasDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/TipoQuartosDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/TipoQuartosDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HotelMain/AppHotel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HotelMain/ServicosHospedes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HotelMain/ServicosQuartos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HotelMain/ServicosReservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppHotel/ServicosReservas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HotelMain/ServicosTipoQuarto.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +57,7 @@
     "ToolWindow.GitHub Copilot Chat.ShowToolbar": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/elehi/OneDrive/Documentos/GitHub/SistemaHotel/Hotel/Database",
+    "last_opened_file_path": "C:/Users/elehi/OneDrive/Documentos/GitHub/SistemaHotel/Hotel/src/main/java/AppHotel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,6 +71,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\elehi\OneDrive\Documentos\GitHub\SistemaHotel\Hotel\src\main\java\AppHotel" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\elehi\OneDrive\Documentos\GitHub\SistemaHotel\Hotel\Database" />
       <recent name="C:\Users\elehi\OneDrive\Documentos\GitHub\SistemaHotel\Hotel\src\main\java" />
@@ -107,6 +111,7 @@
       <workItem from="1736034650232" duration="11173000" />
       <workItem from="1736106953270" duration="19092000" />
       <workItem from="1736201580625" duration="5414000" />
+      <workItem from="1736210293215" duration="302000" />
     </task>
     <servers />
   </component>
