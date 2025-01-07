@@ -1,7 +1,5 @@
 package AppHotel;
 
-
-public class ServicosReservas {
 import DAO.ReservasDAO;
 import DAO.QuartosDAO;
 import DAO.HospedesDAO;
@@ -195,5 +193,4 @@ public class ServicosReservas {
             System.out.println("\n - Erro ao listar reservas: " + e.getMessage());
         }
     }
-}
 }
