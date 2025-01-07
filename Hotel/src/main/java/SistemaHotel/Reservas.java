@@ -39,7 +39,7 @@ public class Reservas {
      * @param dataCheckin  Data de check-in.
      * @param dataCheckout Data de check-out.
      */
-    public Reservas(Quartos quarto, Hospedes hospede, LocalDate dataCheckin, LocalDate dataCheckout) {
+    public Reservas(Quartos quarto, Hospedes hospede, LocalDate dataCheckin, LocalDate dataCheckout, int reservasAtiva) {
         // Verifica se os campos obrigatórios foram preenchidos.
         if (hospede == null || quarto == null || dataCheckin == null || dataCheckout == null) {
             throw new IllegalArgumentException(" - Todos os campos são obrigatórios.");}
@@ -49,16 +49,14 @@ public class Reservas {
         // Verifica se a data de check-in é anterior à data atual.
         if (dataCheckin.isBefore(LocalDate.now())) {
             throw new IllegalArgumentException(" - A data de check-in não pode ser anterior à data atual.");}
-        // Verifica se o quarto selecionado está disponível.
-        if (!quarto.isQuartoDisponivel()) {
-            throw new IllegalArgumentException(" - O quarto selecionado não está disponível.");}
+
 
         this.quarto = quarto;
         this.quarto.setQuartoOcupado();
         this.hospede = hospede;
         this.dataCheckin = dataCheckin;
         this.dataCheckout = dataCheckout;
-        this.reservaAtiva = true;
+        this.reservaAtiva = reservasAtiva == 1;
         calcularValorTotal();}
 
     /**
@@ -85,7 +83,6 @@ public class Reservas {
             return false;
         } else {
             reservaAtiva = false;
-            quarto.setQuartoDisponivel();
             return true;
         }
     }
@@ -169,22 +166,12 @@ public class Reservas {
      */
     @Override
     public String toString() {
-        if(reservaAtiva){
-            return "\n Reserva ID: " + reservasId + "\n" +
-                    " Quarto: " + quarto.getNumero() + "\n" +
-                    " Hóspede: " + hospede.getNome() + "\n" +
-                    " Data de Check-in: " + dataCheckin + "\n" +
-                    " Data de Check-out: " + dataCheckout + "\n" +
-                    " Valor Total da Reserva: R$ " + valorTotal + "\n" +
-                    " Reserva Ativa";
-        } else {
-            return "\n Reserva ID: " + reservasId + "\n" +
-                    " Quarto: " + quarto.getNumero() + "\n" +
-                    " Hóspede: " + hospede.getNome() + "\n" +
-                    " Data de Check-in: " + dataCheckin + "\n" +
-                    " Data de Check-out: " + dataCheckout + "\n" +
-                    " Valor Total da Reserva: R$ " + valorTotal + "\n" +
-                    " Reserva Finalizada";
-        }
+        return "\n Reserva ID: " + reservasId + "\n" +
+                " Quarto: " + quarto.getNumero() + "\n" +
+                " Hóspede: " + hospede.getNome() + "\n" +
+                " Data de Check-in: " + dataCheckin + "\n" +
+                " Data de Check-out: " + dataCheckout + "\n" +
+                " Valor Total da Reserva: R$ " + valorTotal + "\n" +
+                " Reserva " + (reservaAtiva ? "Ativa" : "Finalizada") + "\n";
     }
 }

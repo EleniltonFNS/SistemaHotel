@@ -122,8 +122,13 @@ public class ServicosTipoQuartos {
             int id = entrada.nextInt();
             entrada.nextLine();
 
-            tipoQuartosDAO.apagar(id);
-            System.out.println("\n - Tipo de Quarto excluído com sucesso!");
+            TipoQuartos tipoQuarto = tipoQuartosDAO.pesquisar(id);
+            if (tipoQuarto != null) {
+                tipoQuartosDAO.apagar(id);
+                System.out.println("\n - Tipo de Quarto excluído com sucesso!");
+            } else {
+                System.out.println("\n - Tipo de Quarto não encontrado.");
+            }
         } catch (Exception e) {
             System.out.println("\n - Erro ao excluir Tipo de Quarto: " + e.getMessage());
         }

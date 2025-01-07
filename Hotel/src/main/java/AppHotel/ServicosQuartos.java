@@ -33,20 +33,21 @@ public class ServicosQuartos {
             System.out.print("Número: ");
             int numero = entrada.nextInt();
             entrada.nextLine();
-            System.out.print("Disponível (true/false): ");
-            boolean disponivel = entrada.nextBoolean();
-            entrada.nextLine();
             System.out.print("ID do Tipo de Quarto: ");
             int tipoQuartoId = entrada.nextInt();
             entrada.nextLine();
 
-            TipoQuartos tipoQuarto = new TipoQuartosDAO().pesquisar(tipoQuartoId);
-            Quartos quarto = new Quartos(numero, tipoQuarto);
-            if (disponivel) {
-                quarto.setQuartoDisponivel();
-            } else {
-                quarto.setQuartoOcupado();
+            // Verificar se já existe um quarto com o mesmo número
+            List<Quartos> quartosList = quartosDAO.listarTudo();
+            for (Quartos quarto : quartosList) {
+                if (quarto.getNumero() == numero) {
+                    System.out.println("\n - Já existe um quarto com este número.");
+                    return;
+                }
             }
+
+            TipoQuartos tipoQuarto = new TipoQuartosDAO().pesquisar(tipoQuartoId);
+            Quartos quarto = new Quartos(numero, tipoQuarto, 1);
             quartosDAO.inserir(quarto);
             System.out.println("\n - Quarto cadastrado com sucesso!");
         } catch (Exception e) {
@@ -132,8 +133,17 @@ public class ServicosQuartos {
             int id = entrada.nextInt();
             entrada.nextLine();
 
-            quartosDAO.apagar(id);
-            System.out.println("\n - Quarto excluído com sucesso!");
+            Quartos quarto = quartosDAO.pesquisar(id);
+            if (quarto != null) {
+                if (quarto.isQuartoDisponivel()) {
+                    quartosDAO.apagar(id);
+                    System.out.println("\n - Quarto excluído com sucesso!");
+                } else {
+                    System.out.println("\n - O quarto não pode ser excluído pois está ocupado.");
+                }
+            } else {
+                System.out.println("\n - Quarto não encontrado.");
+            }
         } catch (Exception e) {
             System.out.println("\n - Erro ao excluir quarto: " + e.getMessage());
         }

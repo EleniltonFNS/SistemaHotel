@@ -121,7 +121,7 @@ public class TipoQuartos {
      */
     @Override
     public String toString() {
-        return "\n Tipo de Quarto: " + nome + "\n"
+        return "\nTipo de Quarto: " + nome + "\n"
                 + "ID: " + tipoQuartosId + "\n"
                 + "Capacidade de Pessoas: " + capacidadePessoas + "\n"
                 + "Preço da Diária: R$ " + precoDiaria + "\n"

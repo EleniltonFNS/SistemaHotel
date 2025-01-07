@@ -113,13 +113,20 @@ public class ServicosHospedes {
      */
     public void excluirHospede(Scanner entrada) {
         try {
+
             System.out.println("\n - Excluir Cadastro - \n");
             System.out.print("ID do Hóspede: ");
             int id = entrada.nextInt();
             entrada.nextLine();
 
-            hospedesDAO.apagar(id);
-            System.out.println("\n - Hóspede excluído com sucesso!");
+            Hospedes hospede = hospedesDAO.pesquisar(id);
+            if (hospede != null) {
+                hospedesDAO.apagar(id);
+                System.out.println("\n - Hóspede excluído com sucesso!");
+            } else {
+                System.out.println("\n - Hóspede não encontrado.");
+                return;
+            }
         } catch (Exception e) {
             System.out.println("\n - Erro ao excluir hóspede: " + e.getMessage());
         }

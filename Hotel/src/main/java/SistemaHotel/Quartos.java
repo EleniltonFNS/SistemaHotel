@@ -26,17 +26,17 @@ public class Quartos {
      * @param numero     Número do quarto.
      * @param tipoQuarto Tipo do quarto.
      */
-    public Quartos (int numero, TipoQuartos tipoQuarto) {
+    public Quartos (int numero, TipoQuartos tipoQuarto, int quartoDisponivel){
         this.numero = numero;
-        this.quartoDisponivel = true; // Objeto quarto iniciado como disponível.
-        this.tipoQuarto = tipoQuarto;}
+        this.tipoQuarto = tipoQuarto;
+        this.quartoDisponivel = quartoDisponivel == 1;}
 
     /**
      * Método que retorna o ID do quarto.
      * @return ID do quarto.
      */
     public int getQuartosId() {
-        return quartosId;}
+        return this.quartosId;}
 
     /**
      * Método que altera o ID do quarto.
@@ -100,16 +100,9 @@ public class Quartos {
      */
     @Override
     public String toString() {
-        if(quartoDisponivel){
-            return "\n Quarto: " + numero + "\n"
-                    + " ID: " + quartosId + "\n"
-                    + " Status Disponibilidade: Disponível \n"
-                    + " Tipo: " + tipoQuarto + " | R$ " + tipoQuarto.getPrecoDiaria() + " a diária";
-        } else {
-            return "\n Quarto: " + numero + "\n"
-                    + " ID: " + quartosId + "\n"
-                    + " Status Disponibilidade: Ocupado \n"
-                    + " Tipo: " + tipoQuarto +  " | R$ " + tipoQuarto.getPrecoDiaria() + " a diária";
-        }
+        return "\n Quarto: " + numero + "\n"
+                + " ID: " + quartosId + "\n"
+                + " Status Disponibilidade: " + (quartoDisponivel ? "Diponível" : "Ocupado") + " \n"
+                + " Tipo: " + tipoQuarto;
     }
 }

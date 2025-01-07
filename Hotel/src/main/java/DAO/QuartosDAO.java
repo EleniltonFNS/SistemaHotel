@@ -57,7 +57,7 @@ public class QuartosDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 TipoQuartos tipoQuarto = new TipoQuartosDAO().pesquisar(rs.getInt("quartos_tq_id"));
-                quarto = new Quartos(rs.getInt("numero"), tipoQuarto);
+                quarto = new Quartos(rs.getInt("numero"), tipoQuarto, rs.getInt("quarto_disponivel"));
                 quarto.setQuartosId(rs.getInt("quartos_id"));
                 if (rs.getBoolean("quarto_disponivel")) {
                     quarto.setQuartoDisponivel();
@@ -83,6 +83,36 @@ public class QuartosDAO {
             stmt.setBoolean(2, quarto.isQuartoDisponivel());
             stmt.setInt(3, quarto.getTipoQuarto().getTipoQuartosId());
             stmt.setInt(4, quarto.getQuartosId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Método para registrar o quarto como ocupado
+     *
+     * @param id ID do quarto a ser registrado como ocupado
+     */
+    public void registrarQuartoOcupado(int id) {
+        String sql = "UPDATE quartos SET quarto_disponivel = 0 WHERE quartos_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Método para registrar o quarto como desocupado
+     *
+     * @param id ID do quarto a ser registrado como desocupado
+     */
+    public void registrarQuartoDesocupado(int id) {
+        String sql = "UPDATE quartos SET quarto_disponivel = 1 WHERE quartos_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, id);
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -116,13 +146,9 @@ public class QuartosDAO {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 TipoQuartos tipoQuarto = new TipoQuartosDAO().pesquisar(rs.getInt("quartos_tq_id"));
-                Quartos quarto = new Quartos(rs.getInt("numero"), tipoQuarto);
+                Quartos quarto = new Quartos(rs.getInt("numero"), tipoQuarto, rs.getInt("quarto_disponivel"));
                 quarto.setQuartosId(rs.getInt("quartos_id"));
-                if (rs.getBoolean("quarto_disponivel")) {
-                    quarto.setQuartoDisponivel();
-                } else {
-                    quarto.setQuartoOcupado();
-                }
+
                 quartosList.add(quarto);
             }
         } catch (SQLException e) {

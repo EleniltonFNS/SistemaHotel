@@ -36,6 +36,14 @@ public class ReservasDAO {
      * @param reserva Objeto Reservas a ser salvo.
      */
     public void inserir(Reservas reserva) {
+        if (reserva.getQuarto() == null || reserva.getHospede() == null ||
+                reserva.getDataCheckin() == null || reserva.getDataCheckout() == null) {
+            throw new IllegalArgumentException("Todos os campos são obrigatórios.");
+        }
+        if(!reserva.getQuarto().isQuartoDisponivel()) {
+            throw new IllegalArgumentException(" - O quarto já está ocupado.");
+        }
+
         reserva.calcularValorTotal(); // Calcula o valor total antes de inserir
         String sql = "INSERT INTO reservas (reservas_quarto_id, reservas_hospedes_id, data_checkin, data_checkout, valor_total, reserva_ativa) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -46,6 +54,9 @@ public class ReservasDAO {
             stmt.setDouble(5, reserva.getValorTotal());
             stmt.setBoolean(6, reserva.isReservaAtiva());
             stmt.executeUpdate();
+
+            // Registrar o quarto como ocupado
+            new QuartosDAO().registrarQuartoOcupado(reserva.getQuarto().getQuartosId());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -66,7 +77,7 @@ public class ReservasDAO {
             if (rs.next()) {
                 Quartos quarto = new QuartosDAO().pesquisar(rs.getInt("reservas_quarto_id"));
                 Hospedes hospede = new HospedesDAO().pesquisar(rs.getInt("reservas_hospedes_id"));
-                reserva = new Reservas(quarto, hospede, rs.getDate("data_checkin").toLocalDate(), rs.getDate("data_checkout").toLocalDate());
+                reserva = new Reservas(quarto, hospede, rs.getDate("data_checkin").toLocalDate(), rs.getDate("data_checkout").toLocalDate(), rs.getInt("reserva_ativa"));
                 reserva.setReservasId(rs.getInt("reservas_id"));
             }
         } catch (SQLException e) {
@@ -81,6 +92,11 @@ public class ReservasDAO {
      * @param reserva Objeto Reservas a ser atualizado.
      */
     public void atualizar(Reservas reserva) {
+        if (reserva == null || reserva.getReservasId() <= 0) {
+            System.out.println("ID inválido.");
+            return;
+        }
+
         reserva.calcularValorTotal(); // Calcula o valor total antes de atualizar
         String sql = "UPDATE reservas SET reservas_quarto_id = ?, reservas_hospedes_id = ?, data_checkin = ?, data_checkout = ?, valor_total = ?, reserva_ativa = ? WHERE reservas_id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -118,15 +134,19 @@ public class ReservasDAO {
      * @param id ID da reserva a ser finalizada.
      */
     public void finalizarReserva(int id) {
-        Reservas reserva = pesquisar(id);
-        if (reserva != null && reserva.finalizarReserva()) {
-            String sql = "UPDATE reservas SET reserva_ativa = false WHERE reservas_id = ?";
-            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setInt(1, id);
-                stmt.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
+        String sql = "UPDATE reservas SET reserva_ativa = false WHERE reservas_id = ? AND reserva_ativa = true";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected > 0) {
+                Reservas reserva = pesquisar(id);
+                if (reserva != null) {
+                    reserva.finalizarReserva();
+                    new QuartosDAO().registrarQuartoDesocupado(reserva.getQuarto().getQuartosId());
+                }
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -143,7 +163,7 @@ public class ReservasDAO {
             while (rs.next()) {
                 Quartos quarto = new QuartosDAO().pesquisar(rs.getInt("reservas_quarto_id"));
                 Hospedes hospede = new HospedesDAO().pesquisar(rs.getInt("reservas_hospedes_id"));
-                Reservas reserva = new Reservas(quarto, hospede, rs.getDate("data_checkin").toLocalDate(), rs.getDate("data_checkout").toLocalDate());
+                Reservas reserva = new Reservas(quarto, hospede, rs.getDate("data_checkin").toLocalDate(), rs.getDate("data_checkout").toLocalDate(), rs.getInt("reserva_ativa"));
                 reserva.setReservasId(rs.getInt("reservas_id"));
                 reservasList.add(reserva);
             }

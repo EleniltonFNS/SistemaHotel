@@ -1,11 +1,11 @@
 package AppHotel;
 
 import DAO.ReservasDAO;
-import DAO.QuartosDAO;
-import DAO.HospedesDAO;
-import SistemaHotel.Reservas;
 import SistemaHotel.Quartos;
+import DAO.QuartosDAO;
+import SistemaHotel.Reservas;
 import SistemaHotel.Hospedes;
+import DAO.HospedesDAO;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Classe que contém métodos para realizar operações de CRUD na tabela reservas do banco de dados.
+ * Classe responsável por realizar operações de CRUD na tabela reservas do banco de dados.
  */
 public class ServicosReservas {
 
@@ -27,7 +27,7 @@ public class ServicosReservas {
     }
 
     /**
-     * Registra uma nova reserva no sistema.
+     * Método que registra uma nova reserva no banco de dados.
      *
      * @param entrada Scanner para entrada de dados.
      */
@@ -47,35 +47,47 @@ public class ServicosReservas {
 
             Quartos quarto = new QuartosDAO().pesquisar(quartoId);
             Hospedes hospede = new HospedesDAO().pesquisar(hospedeId);
-            Reservas reserva = new Reservas(quarto, hospede, dataCheckin, dataCheckout);
-            reservasDAO.inserir(reserva);
-            System.out.println("\n - Reserva registrada com sucesso!");
+
+            if (quarto != null && hospede != null) {
+                Reservas reserva = new Reservas(quarto, hospede, dataCheckin, dataCheckout, 1);
+                reservasDAO.inserir(reserva);
+                System.out.println("\n - Reserva registrada com sucesso!");
+            } else {
+                System.out.println("\n - Quarto ou Hóspede não encontrado.");
+            }
         } catch (Exception e) {
             System.out.println("\n - Erro ao registrar reserva: " + e.getMessage());
         }
     }
 
     /**
-     * Finaliza uma reserva, tornando o quarto disponível novamente.
+     * Método que finaliza uma reserva no banco de dados.
      *
      * @param entrada Scanner para entrada de dados.
      */
-    public void finalizarReserva(Scanner entrada) {
-        try {
-            System.out.println("\n - Finalizar Reserva - \n");
-            System.out.print("ID da Reserva: ");
-            int id = entrada.nextInt();
-            entrada.nextLine();
+public void finalizarReserva(Scanner entrada) {
+    try {
+        System.out.println("\n - Finalizar Reserva - \n");
+        System.out.print("ID da Reserva: ");
+        int id = entrada.nextInt();
+        entrada.nextLine();
 
+        Reservas reserva = reservasDAO.pesquisar(id);
+        if (reserva.isReservaAtiva()) {
             reservasDAO.finalizarReserva(id);
             System.out.println("\n - Reserva finalizada com sucesso!");
-        } catch (Exception e) {
-            System.out.println("\n - Erro ao finalizar reserva: " + e.getMessage());
+        } else if (reserva != null) {
+            System.out.println("\n - Reserva com ID " + id + " já está finalizada.");
+        } else {
+            System.out.println("\n - Reserva não encontrada.");
         }
+    } catch (Exception e) {
+        System.out.println("\n - Erro ao finalizar reserva: " + e.getMessage());
     }
+}
 
     /**
-     * Simula uma reserva, calculando o valor total da estadia.
+     * Método que simula uma reserva no banco de dados.
      *
      * @param entrada Scanner para entrada de dados.
      */
@@ -105,12 +117,12 @@ public class ServicosReservas {
     }
 
     /**
-     * Pesquisa uma reserva pelo ID.
+     * Método que pesquisa uma reserva no banco de dados.
      *
      * @param entrada Scanner para entrada de dados.
      */
     public void pesquisarReserva(Scanner entrada) {
-        try {
+
             System.out.println("\n - Pesquisar Reserva - \n");
             System.out.print("ID da Reserva: ");
             int id = entrada.nextInt();
@@ -122,13 +134,11 @@ public class ServicosReservas {
             } else {
                 System.out.println("\n - Reserva não encontrada.");
             }
-        } catch (Exception e) {
-            System.out.println("\n - Erro ao pesquisar reserva: " + e.getMessage());
-        }
+
     }
 
     /**
-     * Atualiza uma reserva no sistema.
+     * Método que atualiza uma reserva no banco de dados.
      *
      * @param entrada Scanner para entrada de dados.
      */
@@ -161,7 +171,7 @@ public class ServicosReservas {
     }
 
     /**
-     * Exclui uma reserva do sistema.
+     * Método que exclui uma reserva no banco de dados.
      *
      * @param entrada Scanner para entrada de dados.
      */
@@ -172,15 +182,24 @@ public class ServicosReservas {
             int id = entrada.nextInt();
             entrada.nextLine();
 
-            reservasDAO.apagar(id);
-            System.out.println("\n - Reserva excluída com sucesso!");
+            Reservas reserva = reservasDAO.pesquisar(id);
+            if(reserva!=null) {
+                if (reserva.isReservaAtiva()) {
+                    System.out.println("\n - Reserva ativa, finalize-a antes de excluí-la.");
+                } else {
+                    reservasDAO.apagar(id);
+                    System.out.println("\n - Reserva excluída com sucesso!");
+                }
+            } else {
+                System.out.println("\n - Reserva não encontrada.");
+            }
         } catch (Exception e) {
             System.out.println("\n - Erro ao excluir reserva: " + e.getMessage());
         }
     }
 
     /**
-     * Lista todas as reservas registradas no sistema.
+     * Método que lista todas as reservas no banco de dados.
      */
     public void listarReservas() {
         try {
