@@ -26,4 +26,19 @@ public class ConexaoSysHotel {
             return null;
         }
     }
+
+    /**
+     * Fecha a conexão com o banco de dados.
+     *
+     * @param connection Conexão a ser fechada.
+     */
+    public void closeConexao(Connection connection) {
+    if (connection != null) {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Erro ao fechar a conexão: " + e.getMessage());
+        }
+    }
+}
 }
