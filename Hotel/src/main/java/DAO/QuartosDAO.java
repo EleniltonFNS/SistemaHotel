@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,6 +118,38 @@ public class QuartosDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Verifica se um quarto está disponível para reserva em um determinado período.
+     *
+     * @param quartoId     ID do quarto a ser verificado.
+     * @param dataCheckin  Data de check-in da reserva.
+     * @param dataCheckout Data de check-out da reserva.
+     * @return true se o quarto estiver disponível, false caso contrário.
+     */
+    public boolean verificarDisponibilidade(int quartoId, LocalDate dataCheckin, LocalDate dataCheckout) {
+        String sql = "SELECT COUNT(*) FROM reservas " +
+                "WHERE reservas_quarto_id = ? " +
+                "AND reserva_ativa = true " +
+                "AND ((data_checkin <= ? AND data_checkout > ?) " +
+                "OR (data_checkin < ? AND data_checkout >= ?))";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, quartoId);
+            stmt.setDate(2, java.sql.Date.valueOf(dataCheckout));
+            stmt.setDate(3, java.sql.Date.valueOf(dataCheckin));
+            stmt.setDate(4, java.sql.Date.valueOf(dataCheckin));
+            stmt.setDate(5, java.sql.Date.valueOf(dataCheckout));
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) == 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     /**

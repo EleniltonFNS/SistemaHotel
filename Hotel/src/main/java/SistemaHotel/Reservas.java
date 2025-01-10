@@ -172,6 +172,7 @@ public class Reservas {
                 " Data de Check-in: " + dataCheckin + "\n" +
                 " Data de Check-out: " + dataCheckout + "\n" +
                 " Valor Total da Reserva: R$ " + valorTotal + "\n" +
-                " Reserva " + (reservaAtiva ? "Ativa" : "Finalizada") + "\n";
+                " Reserva " + (reservaAtiva ? "Ativa" : "Finalizada") + "\n" +
+                "-----------------------------------------------------";
     }
 }

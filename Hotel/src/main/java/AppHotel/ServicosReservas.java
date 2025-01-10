@@ -50,8 +50,25 @@ public class ServicosReservas {
 
             if (quarto != null && hospede != null) {
                 Reservas reserva = new Reservas(quarto, hospede, dataCheckin, dataCheckout, 1);
-                reservasDAO.inserir(reserva);
-                System.out.println("\n - Reserva registrada com sucesso!");
+                reserva.calcularValorTotal();
+
+                // Mostrar informações da reserva antes de confirmar
+                System.out.println("\n - Detalhes da Reserva - ");
+                System.out.println("Hóspede: " + hospede.getNome());
+                System.out.println("Número do Quarto: " + quarto.getNumero());
+                System.out.println("Tipo de Quarto: " + quarto.getTipoQuarto().getNome());
+                System.out.println("Valor Total da Estadia: R$ " + reserva.getValorTotal());
+
+                // Confirmar a reserva
+                System.out.print("\nDeseja confirmar a reserva? (S/N): ");
+                String confirmacao = entrada.nextLine().trim().toUpperCase();
+
+                if (confirmacao.equals("S") || confirmacao.equals("SIM")) {
+                    reservasDAO.inserir(reserva);
+                    System.out.println("\n - Reserva registrada com sucesso!");
+                } else {
+                    System.out.println("\n - Reserva cancelada pelo usuário.");
+                }
             } else {
                 System.out.println("\n - Quarto ou Hóspede não encontrado.");
             }
@@ -59,6 +76,7 @@ public class ServicosReservas {
             System.out.println("\n - Erro ao registrar reserva: " + e.getMessage());
         }
     }
+
 
     /**
      * Método que finaliza uma reserva no banco de dados.

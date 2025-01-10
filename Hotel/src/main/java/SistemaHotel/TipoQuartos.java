@@ -125,5 +125,6 @@ public class TipoQuartos {
                 + "ID: " + tipoQuartosId + "\n"
                 + "Capacidade de Pessoas: " + capacidadePessoas + "\n"
                 + "Preço da Diária: R$ " + precoDiaria + "\n"
-                + "Descrição: " + descricao;}
+                + "Descrição: " + descricao + "\n"
+                + "-----------------------------------------------------";}
 }

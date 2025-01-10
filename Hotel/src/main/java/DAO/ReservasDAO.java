@@ -40,8 +40,8 @@ public class ReservasDAO {
                 reserva.getDataCheckin() == null || reserva.getDataCheckout() == null) {
             throw new IllegalArgumentException("Todos os campos são obrigatórios.");
         }
-        if(!reserva.getQuarto().isQuartoDisponivel()) {
-            throw new IllegalArgumentException(" - O quarto já está ocupado.");
+        if(!new QuartosDAO().verificarDisponibilidade(reserva.getQuarto().getQuartosId(), reserva.getDataCheckin(), reserva.getDataCheckout())) {
+            throw new IllegalArgumentException(" - O quarto já está reservado para esse período.");
         }
 
         reserva.calcularValorTotal(); // Calcula o valor total antes de inserir
